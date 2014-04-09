@@ -22,6 +22,6 @@ Meteor.methods({
 
     Meteor.users.update({_id: Meteor.userId()}, {$set: {points: 0}});
 
-    Games.update({_id: gameId}, {$push: {players: Meteor.userId()}});
+    Games.update({_id: gameId}, {$addToSet: {players: Meteor.userId()}});
   }
 })
