@@ -1,3 +1,25 @@
 <template name="gameDetail">
   <h1>Stop The Bus <small>[ID: {{game._id}}]</small></h1>
+  {{#if currentUser}}
+  <button class="btn btn-default join-game">Join Game</button>
+  {{/if}}
+  <div class="row">
+    <div class="col-lg-3">
+      <h4>Players</h4>
+      <ul>
+        {{#each player}}
+          {{>playerListItem}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-lg-9">
+
+    </div>
+  </div>
+</template>
+
+<template name="playerListItem">
+  <li>
+    {{username}}: {{points}}
+  </li>
 </template>
