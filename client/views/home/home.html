@@ -1,6 +1,7 @@
 <template name="home">
   {{#if currentUser}}
     <p>Hi {{currentUser.username}}!</p>
+    <button class="btn btn-default create-game">Create Game</button>
   {{else}}
     <p>Hi Guest</p>
   {{/if}}
