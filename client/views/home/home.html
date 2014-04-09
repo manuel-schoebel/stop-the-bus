@@ -1,3 +1,7 @@
 <template name="home">
-  Welcome
+  {{#if currentUser}}
+    <p>Hi {{currentUser.username}}!</p>
+  {{else}}
+    <p>Hi Guest</p>
+  {{/if}}
 </template>
