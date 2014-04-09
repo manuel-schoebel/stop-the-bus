@@ -13,7 +13,46 @@
       </ul>
     </div>
     <div class="col-lg-9">
-
+      <form>
+        <table>
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Country</th>
+              <th>River</th>
+              <th>Animal</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input disabled="{{disabled}}" type="text" name="city"></td>
+              <td><input disabled="{{disabled}}" type="text" name="country"></td>
+              <td><input disabled="{{disabled}}" type="text" name="river"></td>
+              <td><input disabled="{{disabled}}" type="text" name="animal"></td>
+              <td><button disabled="{{disabled}}" type="submit" class="btn btn-default btn-sm end-game">Done!</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      {{#if gameOver}}
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>River</th>
+              <th>Animal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each game.answers}}
+              {{> answerTableRow}}
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
     </div>
   </div>
 </template>
@@ -22,4 +61,14 @@
   <li>
     {{username}}: {{points}}
   </li>
+</template>
+
+<template name="answerTableRow">
+  <tr>
+    <td><strong>{{playerName}}</strong></td>
+    <td><input value="{{answer 'city'}}" disabled="disabled" type="text" name="city"></td>
+    <td><input value="{{answer 'country'}}" disabled="disabled" type="text" name="country"></td>
+    <td><input value="{{answer 'river'}}" disabled="disabled" type="text" name="river"></td>
+    <td><input value="{{answer 'animal'}}" disabled="disabled" type="text" name="animal"></td>
+  </tr>
 </template>

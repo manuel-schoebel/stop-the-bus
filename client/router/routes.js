@@ -11,6 +11,7 @@ Router.map(function(){
       game = Games.findOne({_id: this.params._id});
       if(game && _.isArray(game.players)){
         this.subscribe('userById', game.players).wait();
+        if(!this.ready()) return pause();
       }
     },
     data: function(){
